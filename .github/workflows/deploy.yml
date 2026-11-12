@@ -23,4 +23,4 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SLUG: product-videos-for-gallery
+          SLUG: pixreel-product-video-gallery
