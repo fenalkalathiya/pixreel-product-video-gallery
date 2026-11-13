@@ -1,49 +1,877 @@
-/* Woo Product Videos – Admin */
-.pixreel-metabox .description { margin-bottom: 10px; }
-.pixreel-video-list { margin: 0 0 10px; padding: 0; list-style: none; }
+/* Pixreel admin UI — all selectors are scoped to the plugin. */
+.pixreel-admin-page {
+	--pixreel-primary: #6D28D9;
+	--pixreel-primary-hover: #5B21B6;
+	--pixreel-secondary: #7C3AED;
+	--pixreel-accent: #8B5CF6;
+	--pixreel-accent-light: #C4B5FD;
+	--pixreel-purple-50: #F5F3FF;
+	--pixreel-purple-100: #F3F0FF;
+	--pixreel-purple-200: #EDE9FE;
+	--pixreel-text: #1D2327;
+	--pixreel-text-dark: #2C3338;
+	--pixreel-text-secondary: #50575E;
+	--pixreel-text-muted: #646970;
+	--pixreel-bg: #F6F7FA;
+	--pixreel-white: #FFFFFF;
+	--pixreel-border: #E5E7EB;
+	--pixreel-border-wp: #DCDCDE;
+	--pixreel-input-border: #C3C4C7;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	margin: 0 20px 0 0;
+	padding: 24px 0 42px;
+	color: var(--pixreel-text);
+}
+
+.pixreel-admin-page *,
+.pixreel-admin-page *::before,
+.pixreel-admin-page *::after {
+	box-sizing: border-box;
+}
+
+.pixreel-admin-page .pixreel-shell {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.pixreel-admin-page .pixreel-hero {
+	position: relative;
+	min-height: 168px;
+	overflow: hidden;
+	border-radius: 16px;
+	background: linear-gradient(120deg, #17171a 0%, #202024 55%, #3b3a40 100%);
+	color: #fff;
+	padding: 34px 36px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+}
+
+.pixreel-admin-page .pixreel-hero-copy {
+	position: relative;
+	z-index: 2;
+}
+
+.pixreel-admin-page .pixreel-eyebrow {
+	font-size: 11px;
+	line-height: 1.3;
+	letter-spacing: 1.2px;
+	font-weight: 700;
+	color: #C4B5FD;
+	margin-bottom: 22px;
+}
+
+.pixreel-admin-page .pixreel-hero h1 {
+	margin: 0 0 10px;
+	padding: 0;
+	color: #fff;
+	font-size: 30px;
+	line-height: 1.1;
+	font-weight: 700;
+}
+
+.pixreel-admin-page .pixreel-hero p {
+	margin: 0;
+	color: rgba(255, 255, 255, .78);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.pixreel-admin-page .pixreel-hero-orb {
+	position: absolute;
+	width: 290px;
+	height: 290px;
+	border-radius: 50%;
+	background: rgba(109, 40, 217, .27);
+	right: 7%;
+	top: -180px;
+	z-index: 1;
+}
+
+.pixreel-admin-page .pixreel-version-badge {
+	position: relative;
+	z-index: 2;
+	flex: 0 0 auto;
+	border: 1px solid rgba(255, 255, 255, .24);
+	border-radius: 999px;
+	padding: 9px 14px;
+	font-size: 11px;
+	font-weight: 700;
+	color: rgba(255, 255, 255, .86);
+}
+
+.pixreel-admin-page .pixreel-settings-layout {
+	display: grid;
+	grid-template-columns: 220px minmax(0, 1fr);
+	gap: 22px;
+	margin-top: 20px;
+	align-items: start;
+}
+
+.pixreel-admin-page .pixreel-sidebar {
+	position: sticky;
+	top: 32px;
+	background: #fff;
+	border: 1px solid var(--pixreel-border);
+	border-radius: 14px;
+	padding: 14px 9px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+}
+
+.pixreel-admin-page .pixreel-sidebar-label {
+	padding: 7px 10px 10px;
+	color: #8A8F98;
+	font-size: 9px;
+	letter-spacing: 1.2px;
+	font-weight: 700;
+}
+
+.pixreel-admin-page .pixreel-tabs {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.pixreel-admin-page .pixreel-tab {
+	width: 100%;
+	min-height: 44px;
+	border: 1px solid transparent;
+	border-radius: 9px;
+	background: transparent;
+	color: #646970;
+	padding: 0 12px;
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	text-align: left;
+	font: 600 13px/1.2 inherit;
+	cursor: pointer;
+	transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+.pixreel-admin-page .pixreel-tab .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.pixreel-admin-page .pixreel-tab:hover {
+	color: var(--pixreel-primary);
+	background: #FBFAFF;
+}
+
+.pixreel-admin-page .pixreel-tab.is-active {
+	color: var(--pixreel-primary);
+	background: var(--pixreel-purple-50);
+	border-color: #DDD6FE;
+}
+
+.pixreel-admin-page .pixreel-settings-content {
+	min-width: 0;
+}
+
+.pixreel-admin-page .pixreel-panel[hidden] {
+	display: none;
+}
+
+.pixreel-admin-page .pixreel-card {
+	background: #fff;
+	border: 1px solid var(--pixreel-border);
+	border-radius: 14px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+	overflow: hidden;
+	margin-bottom: 16px;
+}
+
+.pixreel-admin-page .pixreel-card-heading {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 20px 22px;
+	border-bottom: 1px solid #EEF0F3;
+}
+
+.pixreel-admin-page .pixreel-card-heading h3 {
+	margin: 0 0 3px;
+	font-size: 14px;
+	line-height: 1.35;
+	color: var(--pixreel-text-dark);
+	font-weight: 700;
+}
+
+.pixreel-admin-page .pixreel-card-heading p {
+	margin: 0;
+	font-size: 12px;
+	line-height: 1.5;
+	color: var(--pixreel-text-muted);
+}
+
+.pixreel-admin-page .pixreel-icon-box {
+	flex: 0 0 38px;
+	width: 38px;
+	height: 38px;
+	border-radius: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--pixreel-primary);
+	background: var(--pixreel-purple-50);
+}
+
+.pixreel-admin-page .pixreel-icon-box .dashicons {
+	font-size: 19px;
+	width: 19px;
+	height: 19px;
+}
+
+.pixreel-admin-page .pixreel-shortcode-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 20px 22px 14px;
+}
+
+.pixreel-admin-page .pixreel-shortcode-row input {
+	flex: 1;
+	min-width: 0;
+	height: 44px;
+	margin: 0;
+	border: 1px solid var(--pixreel-input-border);
+	border-radius: 6px;
+	background: #fff;
+	color: var(--pixreel-text-dark);
+	padding: 8px 12px;
+	font: 13px/1.4 Consolas, Monaco, monospace;
+	box-shadow: none;
+}
+
+.pixreel-admin-page .pixreel-shortcode-row input:focus,
+.pixreel-admin-page .pixreel-field input:focus,
+.pixreel-admin-page .pixreel-number-input input:focus {
+	border-color: var(--pixreel-accent);
+	box-shadow: 0 0 0 1px var(--pixreel-accent);
+	outline: none;
+}
+
+.pixreel-admin-page .pixreel-info-note {
+	margin: 0 22px 20px;
+	padding: 10px 12px;
+	border: 1px solid #BFDBFE;
+	border-left: 3px solid #0EA5E9;
+	border-radius: 6px;
+	background: #F0F9FF;
+	color: #075985;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.pixreel-admin-page .pixreel-info-note .dashicons {
+	font-size: 17px;
+	width: 17px;
+	height: 17px;
+}
+
+.pixreel-admin-page .pixreel-button {
+	min-height: 40px;
+	border-radius: 8px;
+	padding: 8px 15px;
+	font: 600 12px/1.2 inherit;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease;
+}
+
+.pixreel-admin-page .pixreel-button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.pixreel-admin-page .pixreel-button-primary {
+	border: 1px solid var(--pixreel-primary);
+	background: var(--pixreel-primary);
+	color: #fff;
+	box-shadow: 0 2px 5px rgba(109, 40, 217, .16);
+}
+
+.pixreel-admin-page .pixreel-button-primary:hover {
+	background: var(--pixreel-primary-hover);
+	border-color: var(--pixreel-primary-hover);
+	color: #fff;
+}
+
+.pixreel-admin-page .pixreel-button-secondary {
+	border: 1px solid var(--pixreel-border-wp);
+	background: #fff;
+	color: var(--pixreel-text-dark);
+}
+
+.pixreel-admin-page .pixreel-button-secondary:hover {
+	border-color: #B5B8BD;
+	background: #FBFBFC;
+}
+
+.pixreel-admin-page .pixreel-button-save {
+	min-width: 120px;
+	border: 1px solid #4354E8;
+	background: #4354E8;
+	color: #fff;
+	box-shadow: 0 5px 12px rgba(67, 84, 232, .18);
+}
+
+.pixreel-admin-page .pixreel-button-save:hover {
+	background: #3345D4;
+	border-color: #3345D4;
+	color: #fff;
+}
+
+.pixreel-admin-page .pixreel-save-row {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 20px;
+}
+
+.pixreel-admin-page .pixreel-field-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0;
+	padding: 0 22px;
+}
+
+.pixreel-admin-page .pixreel-field {
+	min-width: 0;
+	padding: 18px 0;
+	border-bottom: 1px solid #EEF0F3;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 18px;
+}
+
+.pixreel-admin-page .pixreel-field:nth-last-child(-n+2) {
+	border-bottom: 0;
+}
+
+.pixreel-admin-page .pixreel-field:nth-child(odd) {
+	padding-right: 22px;
+	border-right: 1px solid #EEF0F3;
+}
+
+.pixreel-admin-page .pixreel-field:nth-child(even) {
+	padding-left: 22px;
+}
+
+.pixreel-admin-page .pixreel-field label {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.pixreel-admin-page .pixreel-field label strong {
+	font-size: 13px;
+	color: var(--pixreel-text-dark);
+}
+
+.pixreel-admin-page .pixreel-field label span {
+	font-size: 11px;
+	color: var(--pixreel-text-muted);
+}
+
+.pixreel-admin-page .pixreel-color-field .wp-picker-container {
+	flex: 0 0 auto;
+}
+
+.pixreel-admin-page .wp-picker-container .wp-color-result {
+	margin: 0;
+	height: 34px;
+	border-radius: 6px;
+	box-shadow: none;
+}
+
+.pixreel-admin-page .pixreel-field-stack {
+	padding: 0 22px;
+}
+
+.pixreel-admin-page .pixreel-setting-row {
+	min-height: 78px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	border-bottom: 1px solid #EEF0F3;
+}
+
+.pixreel-admin-page .pixreel-setting-row:last-child {
+	border-bottom: 0;
+}
+
+.pixreel-admin-page .pixreel-setting-row strong {
+	display: block;
+	font-size: 13px;
+	color: var(--pixreel-text-dark);
+	margin-bottom: 4px;
+}
+
+.pixreel-admin-page .pixreel-setting-row>div:first-child span {
+	display: block;
+	font-size: 11px;
+	color: var(--pixreel-text-muted);
+}
+
+.pixreel-admin-page .pixreel-number-input {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+}
+
+.pixreel-admin-page .pixreel-number-input input {
+	width: 100px;
+	min-height: 38px;
+	margin: 0;
+	border: 1px solid var(--pixreel-input-border);
+	border-radius: 6px;
+	padding: 7px 9px;
+	box-shadow: none;
+}
+
+.pixreel-admin-page .pixreel-number-input span {
+	color: var(--pixreel-text-muted);
+	font-size: 12px;
+}
+
+.pixreel-admin-page .pixreel-upload-area {
+	margin: 20px 22px;
+	border: 1px dashed var(--pixreel-input-border);
+	border-radius: 10px;
+	background: #FBFBFC;
+	min-height: 150px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	transition: background .18s ease, border-color .18s ease;
+}
+
+.pixreel-admin-page .pixreel-upload-area:hover {
+	background: var(--pixreel-purple-50);
+	border-color: var(--pixreel-accent);
+}
+
+.pixreel-admin-page .pixreel-media-preview {
+	flex: 0 0 90px;
+	width: 90px;
+	height: 90px;
+	border: 1px solid var(--pixreel-border);
+	border-radius: 8px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.pixreel-admin-page .pixreel-media-preview[hidden] {
+	display: none;
+}
+
+.pixreel-admin-page .pixreel-media-preview img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.pixreel-admin-page .pixreel-upload-copy {
+	min-width: 0;
+}
+
+.pixreel-admin-page .pixreel-upload-copy strong {
+	display: block;
+	margin-bottom: 5px;
+	color: var(--pixreel-text-dark);
+	font-size: 14px;
+}
+
+.pixreel-admin-page .pixreel-upload-copy>span {
+	display: block;
+	color: var(--pixreel-text-muted);
+	font-size: 12px;
+	line-height: 1.5;
+	margin-bottom: 14px;
+}
+
+.pixreel-admin-page .pixreel-upload-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+/* Product edit metabox — same visual language, functionality unchanged. */
+.pixreel-metabox {
+	color: #2C3338;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.pixreel-metabox .description {
+	margin: 0 0 12px;
+	font-size: 12px;
+	line-height: 1.55;
+	color: #646970;
+}
+
+.pixreel-video-list {
+	margin: 0 0 12px;
+	padding: 0;
+	list-style: none;
+}
+
 .pixreel-row {
 	background: #fff;
-	border: 1px solid #e0e0e0;
-	border-radius: 6px;
-	margin-bottom: 8px;
-	padding: 8px 10px;
+	border: 1px solid #E5E7EB;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
 }
+
 .pixreel-row-header {
 	display: flex;
 	align-items: center;
-	gap: 6px;
-	margin-bottom: 6px;
+	gap: 8px;
+	margin-bottom: 9px;
 }
-.pixreel-handle { cursor: move; color: #888; }
-.pixreel-type-label { flex: 1; }
-.pixreel-remove { color: #b32d2e !important; }
-.pixreel-label { display: block; margin: 6px 0; font-size: 12px; }
-.pixreel-label span { display: block; font-weight: 600; margin-bottom: 2px; color: #50575e; }
-.pixreel-mp4-only .button { margin-top: 4px; }
+
+.pixreel-handle {
+	cursor: move;
+	color: #8A8F98;
+}
+
+.pixreel-type-label {
+	flex: 1;
+	color: #6D28D9;
+	font-size: 12px;
+}
+
+.pixreel-remove {
+	color: #B42318 !important;
+}
+
+.pixreel-label {
+	display: block;
+	margin: 9px 0;
+	font-size: 11px;
+}
+
+.pixreel-label span {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 5px;
+	color: #50575E;
+}
+
+.pixreel-label input.widefat {
+	min-height: 36px;
+	border-radius: 6px;
+	border-color: #C3C4C7;
+	box-shadow: none;
+}
+
+.pixreel-label input.widefat:focus {
+	border-color: #8B5CF6;
+	box-shadow: 0 0 0 1px #8B5CF6;
+}
+
+.pixreel-mp4-only .button {
+	margin-top: 5px;
+}
+
 .pixreel-thumb-row {
 	display: flex;
 	gap: 10px;
 	align-items: center;
-	margin-top: 8px;
-	padding-top: 8px;
-	border-top: 1px dashed #eee;
+	margin-top: 9px;
+	padding-top: 10px;
+	border-top: 1px dashed #E5E7EB;
 }
+
 .pixreel-thumb-preview {
-	width: 60px;
-	height: 60px;
-	background: #f6f7f7;
-	border: 1px solid #ddd;
+	width: 72px;
+	height: 72px;
+	flex: 0 0 72px;
+	background: #FBFBFC;
+	border: 1px solid #E5E7EB;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 4px;
+	border-radius: 8px;
 	overflow: hidden;
 }
-.hidden{display: none;}
-.pixreel-thumb-preview img { max-width: 100%; max-height: 100%; display: block; }
-.pixreel-no-thumb { font-size: 10px; color: #999; text-align: center; padding: 4px; }
-.pixreel-thumb-controls { flex: 1; display: flex; gap: 6px; align-items: center; }
-.pixreel-actions { display: flex; gap: 6px; }
-.pixreel-actions .button .dashicons { vertical-align: middle; margin-right: 4px; }
-.pixreel-row.ui-sortable-helper { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
-.pixreel-actions .pixreel-video-btn { display: flex; align-items: center; }
+
+.pixreel-thumb-preview img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
+.pixreel-no-thumb {
+	font-size: 10px;
+	color: #8A8F98;
+	text-align: center;
+	padding: 4px;
+}
+
+.pixreel-thumb-controls {
+	min-width: 0;
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	align-items: center;
+}
+
+.pixreel-actions {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 7px;
+	margin-top: 10px;
+}
+
+.pixreel-actions .button {
+	min-height: 36px;
+	border-radius: 7px;
+	border-color: #DCDCDE;
+}
+
+.pixreel-actions .pixreel-video-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.pixreel-actions .pixreel-add-youtube {
+	color: #6D28D9;
+	border-color: #DDD6FE;
+	background: #F5F3FF;
+}
+
+.pixreel-actions .pixreel-add-mp4 {
+	color: #5B21B6;
+	border-color: #EDE9FE;
+	background: #F3F0FF;
+}
+.pixreel-video-btn .dashicons {
+	height: auto;
+}
+
+.pixreel-row.ui-sortable-helper {
+	box-shadow: 0 4px 12px rgba(16, 24, 40, .08);
+}
+
+.pixreel-metabox .hidden {
+	display: none;
+}
+
+@media (max-width: 960px) {
+	.pixreel-admin-page {
+		margin-right: 12px;
+	}
+
+	.pixreel-admin-page .pixreel-settings-layout {
+		grid-template-columns: 180px minmax(0, 1fr);
+	}
+
+	.pixreel-admin-page .pixreel-field-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.pixreel-admin-page .pixreel-field:nth-child(odd),
+	.pixreel-admin-page .pixreel-field:nth-child(even) {
+		padding-left: 0;
+		padding-right: 0;
+		border-right: 0;
+		border-bottom: 1px solid #EEF0F3;
+	}
+
+	.pixreel-admin-page .pixreel-field:last-child {
+		border-bottom: 0;
+	}
+}
+
+@media (max-width: 782px) {
+	.pixreel-admin-page {
+		margin: 0 10px 0 0;
+		padding-top: 14px;
+	}
+
+	.pixreel-admin-page .pixreel-hero {
+		min-height: 150px;
+		padding: 27px 24px;
+		border-radius: 14px;
+	}
+
+	.pixreel-admin-page .pixreel-hero h1 {
+		font-size: 25px;
+	}
+
+	.pixreel-admin-page .pixreel-eyebrow {
+		margin-bottom: 16px;
+	}
+
+	.pixreel-admin-page .pixreel-version-badge {
+		display: none;
+	}
+
+	.pixreel-admin-page .pixreel-settings-layout {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+
+	.pixreel-admin-page .pixreel-sidebar {
+		position: relative;
+		top: auto;
+		padding: 8px;
+		overflow-x: auto;
+	}
+
+	.pixreel-admin-page .pixreel-sidebar-label {
+		display: none;
+	}
+
+	.pixreel-admin-page .pixreel-tabs {
+		flex-direction: row;
+		width: max-content;
+		min-width: 100%;
+	}
+
+	.pixreel-admin-page .pixreel-tab {
+		width: auto;
+		min-width: 116px;
+		justify-content: center;
+	}
+	.pixreel-admin-page .pixreel-card-heading {
+		padding: 17px;
+	}
+
+	.pixreel-admin-page .pixreel-shortcode-row {
+		padding: 17px 17px 12px;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.pixreel-admin-page .pixreel-info-note {
+		margin: 0 17px 17px;
+	}
+
+	.pixreel-admin-page .pixreel-setting-row {
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: center;
+		padding: 16px 0;
+	}
+
+	.pixreel-admin-page .pixreel-upload-area {
+		margin: 17px;
+		align-items: flex-start;
+	}
+}
+
+@media (max-width: 480px) {
+	.pixreel-admin-page .pixreel-hero {
+		padding: 24px 18px;
+	}
+
+	.pixreel-admin-page .pixreel-hero p {
+		font-size: 12px;
+	}
+
+	.pixreel-admin-page .pixreel-tab {
+		min-width: 105px;
+	}
+
+	.pixreel-admin-page .pixreel-upload-area {
+		flex-direction: column;
+	}
+
+	.pixreel-admin-page .pixreel-save-row {
+		justify-content: stretch;
+	}
+
+	.pixreel-admin-page .pixreel-button-save {
+		width: 100%;
+	}
+}
+
+/* Free badge. */
+.pixreel-admin-page .pixreel-card-heading {
+	position: relative;
+}
+
+.pixreel-admin-page .pixreel-free-badge {
+	margin-left: auto;
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	border-radius: 999px;
+	padding: 5px 8px;
+	font-size: 9px;
+	line-height: 1;
+	font-weight: 800;
+	letter-spacing: .5px;
+	color: #047857;
+	background: #ECFDF5;
+	border: 1px solid #A7F3D0;
+}
+
+/* Single "available in Pro" note. */
+.pixreel-admin-page .pixreel-pro-note {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 16px 0 0;
+	padding: 12px 16px;
+	border: 1px solid #E4D8FF;
+	border-radius: 12px;
+	background: #FBF9FF;
+	color: #5B21B6;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.pixreel-admin-page .pixreel-pro-note .dashicons {
+	flex: 0 0 18px;
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+/* General tab. */
+.pixreel-admin-page .pixreel-general-panel {
+	padding-top: 0;
+}
+
+.pixreel-admin-page .pixreel-general-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.pixreel-admin-page .pixreel-shortcode-card {
+	margin: 0;
+}
+
+.pixreel-admin-page .pixreel-shortcode-card .pixreel-card-heading {
+	min-height: 68px;
+	padding: 16px 20px;
+}

@@ -21,6 +21,14 @@
 		var tpl  = wp.template( 'pixreel-row' );
 		var html = tpl( data );
 		var $row = $( html );
+		var isMp4 = data.type === 'mp4';
+
+		// The PHP template cannot know the type, so set the layout here.
+		$row.attr( 'data-type', data.type );
+		$row.find( '.pixreel-yt-only' ).toggleClass( 'hidden', isMp4 );
+		$row.find( '.pixreel-mp4-only' ).toggleClass( 'hidden', ! isMp4 );
+		$row.find( '.pixreel-type-label' ).text( isMp4 ? ( i18n.mp4_label || 'MP4' ) : ( i18n.youtube_label || 'YouTube' ) );
+
 		if ( data.type === 'mp4' && data.url ) {
 			$row.find( '.pixreel-field-url' ).val( data.url );
 			$row.find( '.pixreel-field-url-mp4' ).val( data.url );

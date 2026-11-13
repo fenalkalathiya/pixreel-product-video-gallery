@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Main plugin bootstrap (singleton).
  *
@@ -7,14 +8,15 @@
 
 namespace PIXREEL;
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Main plugin class. Bootstraps admin, frontend, and settings modules.
  *
  * @since 1.0.0
  */
-class PVG_Plugin {
+class PVG_Plugin
+{
 
 	/**
 	 * Singleton instance.
@@ -64,8 +66,9 @@ class PVG_Plugin {
 	 * @since 1.0.0
 	 * @return PVG_Plugin
 	 */
-	public static function instance() {
-		if ( null === self::$instance ) {
+	public static function instance()
+	{
+		if (null === self::$instance) {
 			self::$instance = new self();
 		}
 
@@ -77,9 +80,10 @@ class PVG_Plugin {
 	 *
 	 * @since 1.0.0
 	 */
-	public function init() {
+	public function init()
+	{
 
-		if ( is_admin() ) {
+		if (is_admin()) {
 
 			$this->admin = new PVG_Admin();
 			$this->admin->init();

@@ -30,7 +30,6 @@ function pixreel_uninstall_cleanup() {
 		'pixreel_main_image_height',
 		'pixreel_thumbnail_width',
 		'pixreel_thumbnail_height',
-		'pixreel_replace_default_gallery',
 		'pixreel_version',
 		'pixreel_settings',
 	);

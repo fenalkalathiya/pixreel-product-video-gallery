@@ -5,11 +5,11 @@ Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires Plugins: woocommerce
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add YouTube and MP4 videos to your WooCommerce products with custom thumbnails, drag-and-drop sorting, a responsive lightbox, and customizable gallery settings.
+Add YouTube and MP4 videos to your WooCommerce products with custom thumbnails, drag-and-drop sorting, a responsive lightbox, variation image support, and customizable gallery settings.
 
 == Description ==
 
@@ -17,7 +17,7 @@ Pixreel - Product Video Gallery for WooCommerce allows store owners to add YouTu
 
 Manage product videos directly from the product edit screen. Add videos, upload custom thumbnails, arrange their display order using drag and drop, and customize the gallery appearance.
 
-The plugin includes a responsive lightbox with navigation controls and customizable settings to help showcase product videos.
+The plugin includes a responsive lightbox with navigation controls, a redesigned settings page, and support for WooCommerce variation images in the Pixreel gallery.
 
 **Important:** The video gallery is not automatically added to single product pages. You must manually insert the `[pixreel_product_gallery]` shortcode wherever you want the gallery to appear.
 
@@ -30,11 +30,21 @@ The plugin includes a responsive lightbox with navigation controls and customiza
 * Drag-and-drop sorting to organize videos.
 * Responsive lightbox with keyboard navigation.
 * Fullscreen support for the lightbox.
+* Variation support: the selected WooCommerce variation image is displayed in the Pixreel gallery.
 * Optional shortcode `[pixreel_product_gallery]` to display the video gallery.
+* Redesigned admin settings interface.
 * Customize arrow color, dot color, active border, thumbnail dimensions, and play icon.
 * Translation-ready with a POT template included.
 * Compatible with WooCommerce HPOS (High-Performance Order Storage).
 * No paid dependencies or third-party services required.
+* More features will be available in Pixreel Pro.
+
+**Variable Product Support**
+
+* When a customer selects a WooCommerce product variation, Pixreel displays that variation's image in the gallery.
+* If the product has a featured image, it is temporarily replaced by the variation image and restored when the variation is reset.
+* If the product has no featured image, a temporary variation image slide is added instead.
+* Existing gallery images and videos are always preserved.
 
 == Installation ==
 
@@ -87,6 +97,14 @@ Yes. You can set custom thumbnail images for your videos. YouTube videos can als
 
 Yes. Use the drag-and-drop functionality in the Product Videos metabox to arrange the video display order.
 
+= Does it support variable products? =
+
+Yes. When a customer selects a variation, the variation image is displayed in the Pixreel gallery. Existing gallery images and videos are preserved.
+
+= Will the original image return when I reset the variation? =
+
+Yes. Resetting the variation restores the original image or removes the temporary variation slide.
+
 = Does the plugin require a paid plugin? =
 
 No. Pixreel is free and does not require any paid add-ons or third-party services.
@@ -108,9 +126,16 @@ The plugin is designed to load its frontend scripts and styles only where needed
 1. Product edit screen showing YouTube and MP4 video management with custom thumbnails and drag-and-drop sorting.
 2. Frontend product video gallery showing video thumbnails and play buttons.
 3. Responsive video lightbox with navigation arrows and video playback.
-4. Plugin settings page showing customization options for colors, dimensions, play icon, and shortcode settings.
+4. Redesigned plugin settings page showing customization options for colors, dimensions, play icon, and shortcode settings.
+5. Variable product showing the selected variation image in the Pixreel gallery.
 
 == Changelog ==
+
+= 1.0.2 =
+* New admin UI: redesigned settings page.
+* Added variation support in the gallery: the selected variation image is displayed in the Pixreel gallery.
+* Existing gallery images and videos are preserved when a variation is selected.
+* Fixed the MP4 row layout in the Product Videos metabox.
 
 = 1.0.1 =
 * Improved plugin compatibility and stability.
@@ -128,6 +153,9 @@ The plugin is designed to load its frontend scripts and styles only where needed
 * Translation-ready.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Adds a new admin UI and WooCommerce variation image support in the gallery. The video gallery must be displayed using the `[pixreel_product_gallery]` shortcode.
 
 = 1.0.1 =
 Includes compatibility improvements, general fixes, and updated documentation. The video gallery must be manually displayed using the `[pixreel_product_gallery]` shortcode.
