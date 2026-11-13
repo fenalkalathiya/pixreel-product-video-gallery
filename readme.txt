@@ -1,5 +1,5 @@
 === Pixreel - Product Video Gallery for WooCommerce ===
-Contributors: gyandatabit, fenal13
+Contributors: fenal13
 Tags: woocommerce, product video, gallery, youtube, mp4
 Requires at least: 5.8
 Tested up to: 7.0
@@ -9,7 +9,7 @@ Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add YouTube and MP4 videos to your WooCommerce products with custom thumbnails, drag-and-drop sorting, a responsive lightbox, variation image support, and customizable gallery settings.
+Add YouTube and MP4 videos to WooCommerce product galleries, with variation image support and simple gallery settings.
 
 == Description ==
 
