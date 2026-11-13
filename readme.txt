@@ -5,7 +5,7 @@ Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires Plugins: woocommerce
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,6 +130,9 @@ The plugin is designed to load its frontend scripts and styles only where needed
 5. Variable product showing the selected variation image in the Pixreel gallery.
 
 == Changelog ==
+
+= 1.0.3 =
+* Mentioning the WordPress.org readme and contributor metadata corrections. 
 
 = 1.0.2 =
 * New admin UI: redesigned settings page.

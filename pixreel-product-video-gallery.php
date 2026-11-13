@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Pixreel - Product Video Gallery for WooCommerce
  * Description:       Add YouTube and MP4 videos to the WooCommerce product gallery. When Pixreel Pro is active, the Free plugin is automatically disabled because Pro includes all Free features.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            GyandataBit
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,7 +20,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'PIXREEL_VERSION' ) ) {
-	define( 'PIXREEL_VERSION', '1.0.2' );
+	define( 'PIXREEL_VERSION', '1.0.3' );
 }
 define( 'PIXREEL_PLUGIN_FILE', __FILE__ );
 define( 'PIXREEL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
